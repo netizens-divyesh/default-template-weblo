@@ -1,0 +1,296 @@
+{
+  "id": "default",
+  "name": "Default Template",
+  "description": "Generic starter template for any website with shadcn/ui components",
+  "file_structure": {
+    "pages_dir": "src/pages",
+    "components_dir": "src/components",
+    "routes_file": "src/routes.tsx"
+  },
+  "available_pages": [
+    {
+      "path": "src/pages/Home.tsx",
+      "name": "Home",
+      "description": "Main app entry point - REPLACE this content for single-purpose apps (task manager, calculator, etc.)",
+      "sections": ["hero", "features"]
+    },
+    {
+      "path": "src/pages/NotFound.tsx",
+      "name": "NotFound",
+      "description": "Default 404 page"
+    }
+  ],
+  "section_patterns": {
+    "hero": "Full-width section with headline, description, and CTA buttons",
+    "features": "Grid of 3 cards showcasing key benefits",
+    "testimonials": "Customer quotes with avatar in card format",
+    "pricing": "Pricing tiers in card grid",
+    "cta": "Call-to-action section encouraging user action",
+    "faq": "Accordion-style FAQ section",
+    "contact": "Contact form with input fields"
+  },
+  "custom_components": [
+    {
+      "name": "Layout",
+      "path": "src/components/Layout.tsx",
+      "description": "Main layout component with navigation and footer"
+    },
+    {
+      "name": "Navigation",
+      "path": "src/components/Navigation.tsx",
+      "description": "Responsive navigation with mobile menu, theme toggle, and skip link for accessibility"
+    },
+    {
+      "name": "ThemeToggle",
+      "path": "src/components/ThemeToggle.tsx",
+      "description": "Dropdown menu for switching between light, dark, and system themes",
+      "usage": "<ThemeToggle /> - Already included in Navigation component"
+    },
+    {
+      "name": "ErrorBoundary",
+      "path": "src/components/ErrorBoundary.tsx",
+      "description": "Catches React errors and shows fallback UI. Wrap pages or sections that might fail.",
+      "usage": "<ErrorBoundary fallback={<p>Something went wrong</p>}><YourComponent /></ErrorBoundary>"
+    },
+    {
+      "name": "ProtectedRoute",
+      "path": "src/components/ProtectedRoute.tsx",
+      "description": "Wraps routes requiring authentication. Redirects to login if not authenticated.",
+      "usage": "<ProtectedRoute><AccountPage /></ProtectedRoute>"
+    },
+    {
+      "name": "LoadingState",
+      "path": "src/components/LoadingState.tsx",
+      "description": "Consistent loading spinner with optional message",
+      "usage": "<LoadingState message=\"Loading products...\" />"
+    },
+    {
+      "name": "EmptyState",
+      "path": "src/components/EmptyState.tsx",
+      "description": "Shown when lists are empty - includes icon, title, description, and optional action",
+      "usage": "<EmptyState icon={<Package />} title=\"No products\" description=\"Add your first product\" action={{ label: 'Add Product', onClick: handleAdd }} />"
+    }
+  ],
+  "utility_hooks": [
+    {
+      "name": "useTheme",
+      "path": "src/hooks/useTheme.tsx",
+      "description": "Theme management hook for light/dark/system mode switching with localStorage persistence",
+      "usage": "const { theme, setTheme, resolvedTheme } = useTheme(); // theme: 'light' | 'dark' | 'system', resolvedTheme: 'light' | 'dark'"
+    },
+    {
+      "name": "useData",
+      "path": "src/hooks/useData.ts",
+      "description": "Auto-switching data hook - uses Firestore when enabled, falls back to sample data when disabled. Perfect for building features that work with or without Firebase.",
+      "usage": "const { data, loading, isLive, add, update, remove } = useData('products', SAMPLE_PRODUCTS);"
+    },
+    {
+      "name": "useFirestore",
+      "path": "src/hooks/useFirestore.ts",
+      "description": "Real-time Firestore CRUD operations with automatic collection prefixing",
+      "usage": "const { documents, loading, add, update, remove } = useFirestore<Product>('products');"
+    },
+    {
+      "name": "useAuth",
+      "path": "src/hooks/useAuth.ts",
+      "description": "Firebase authentication hook for login, signup, and user state",
+      "usage": "const { user, signIn, signUp, signOut, isAuthenticated } = useAuth();"
+    },
+    {
+      "name": "useSystemStorage",
+      "path": "src/hooks/useSystemStorage.ts",
+      "description": "File upload hook for System Storage API",
+      "usage": "const { upload, uploading, error } = useSystemStorage();"
+    }
+  ],
+  "utility_libs": [
+    {
+      "name": "validation",
+      "path": "src/lib/validation.ts",
+      "description": "Zod schemas for form validation with react-hook-form integration",
+      "schemas": ["emailSchema", "passwordSchema", "contactFormSchema", "loginSchema", "signupSchema"],
+      "usage": "import { contactFormSchema } from '../lib/validation'; const form = useForm({ resolver: zodResolver(contactFormSchema) });"
+    },
+    {
+      "name": "format",
+      "path": "src/lib/format.ts",
+      "description": "Formatting utilities for prices, dates, numbers, and strings",
+      "functions": ["formatPrice", "formatDate", "formatNumber", "formatRelativeTime", "truncate", "slugify"],
+      "usage": "import { formatPrice, formatDate } from '../lib/format'; formatPrice(99.99) → '$99.99'; formatDate(new Date()) → 'Jan 29, 2026'"
+    }
+  ],
+  "shadcn_components": [
+    "Button",
+    "Card",
+    "Input",
+    "Label",
+    "Textarea",
+    "Dialog",
+    "Tabs",
+    "Accordion",
+    "Alert",
+    "Avatar",
+    "Badge",
+    "Checkbox",
+    "Select",
+    "Separator",
+    "Switch",
+    "Table",
+    "Tooltip",
+    "Progress",
+    "Sheet",
+    "Skeleton",
+    "Sonner",
+    "DropdownMenu"
+  ],
+  "styling": {
+    "primary_color": "#3b82f6",
+    "framework": "tailwind",
+    "tailwind_version": "4.0",
+    "icon_set": "lucide-react",
+    "theming": {
+      "description": "Tailwind v4 + shadcn/ui theming with CSS variables for dark/light mode support",
+      "css_file": "src/index.css",
+      "custom_css_file": "src/custom.css",
+      "theme_hook": "src/hooks/useTheme.tsx",
+      "theme_toggle_component": "src/components/ThemeToggle.tsx",
+      "dark_mode_strategy": "class-based (.dark on html element)",
+      "color_variables": [
+        "background", "foreground", "card", "card-foreground", "popover", "popover-foreground",
+        "primary", "primary-foreground", "secondary", "secondary-foreground", "muted", "muted-foreground",
+        "accent", "accent-foreground", "destructive", "destructive-foreground", "border", "input", "ring"
+      ],
+      "IMPORTANT_RULES": [
+        "NEVER use hardcoded colors like bg-blue-600, text-blue-500 for themed elements",
+        "ALWAYS use semantic classes: bg-primary, text-primary, bg-secondary, text-foreground, etc.",
+        "For accent colors that should vary by mode, use dark: prefix: text-emerald-600 dark:text-emerald-400",
+        "For prices/emphasis: text-primary NOT text-blue-600",
+        "For links: text-primary hover:underline NOT text-blue-600",
+        "For icon backgrounds: bg-primary/10 NOT bg-blue-50",
+        "For success states: bg-emerald-500/10 text-emerald-700 dark:text-emerald-400",
+        "For warning states: bg-amber-500/10 text-amber-700 dark:text-amber-400",
+        "For error states: use destructive variant or text-destructive",
+        "CTA sections can use bg-primary text-primary-foreground for inverted theme sections",
+        "For custom styles beyond theme variables, add them to src/custom.css (NOT index.css which is system-managed)"
+      ]
+    }
+  },
+  "routing_pattern": "react-router",
+  "dependencies": [
+    {
+      "name": "react-router-dom",
+      "version": "^6.26.2"
+    }
+  ],
+  "capabilities": {
+    "storage": {
+      "description": "File uploads via System Storage API",
+      "hook": "useSystemStorage",
+      "path": "src/hooks/useSystemStorage.ts",
+      "requires_api_token": true,
+      "usage": "const { upload, deleteFile, getFiles, uploading, error } = useSystemStorage();"
+    },
+    "firebase": {
+      "description": "Firebase Firestore real-time database",
+      "hook": "useFirestore",
+      "path": "src/hooks/useFirestore.ts",
+      "init_path": "src/lib/firebase.ts",
+      "requires_firebase_config": true,
+      "usage": "const { documents, loading, error, add, update, remove } = useFirestore<YourType>('collection-name');"
+    },
+    "auth": {
+      "description": "Firebase Authentication for user login/signup",
+      "hook": "useAuth",
+      "path": "src/hooks/useAuth.ts",
+      "requires_firebase_config": true,
+      "usage": "const { user, signIn, signUp, signOut, isAuthenticated, loading } = useAuth();"
+    }
+  },
+  "usage_examples": {
+    "single_purpose_app": "IMPORTANT: For requests like 'create a task manager', 'build a calculator', or 'make a todo app', REPLACE the content in src/pages/Home.tsx - do NOT create a separate page. The Home page IS the app.",
+    "adding_section": "For 'add X' requests (e.g., 'add pricing', 'add testimonials'), add as a new section within Home.tsx",
+    "adding_page": "Only create new pages in src/pages/ when user explicitly says 'add a page', 'create a new page', or 'separate page for X'",
+    "adding_route": "Only add new routes when creating a new page. Add to routes array: { path: '/page', element: <Page />, showInNav: true, layout: 'default' }",
+    "using_layout": "Set layout: 'default' in route config for pages that need navigation",
+    "using_storage": "Import useSystemStorage from '../hooks/useSystemStorage' to enable file uploads. Call upload(file) to upload, getFiles() to list, deleteFile(id) to delete.",
+    "using_firebase": "Import { initFirebase } from '../lib/firebase' and call it once in App.tsx. Then use useFirestore<T>('collection') hook in components for real-time CRUD operations.",
+    "using_auth": "Import { useAuth } from '../hooks/useAuth'. Use signIn(email, password) for login, signUp(email, password, name) for registration."
+  },
+  "prompts": {
+    "prompts": [
+      {
+        "priority": 1,
+        "section": "after_role",
+        "title": "CRITICAL: Check Project Capabilities FIRST",
+        "content": "Before creating ANY feature that involves saving data, user accounts, or file uploads:\n\n1. Call `getProjectCapabilities` tool IMMEDIATELY\n2. Check the response for `firebase.enabled` and `storage.enabled`\n3. If enabled: Use the template's hooks (useFirestore, useAuth, useSystemStorage)\n4. If disabled: Tell user their plan doesn't include this feature\n\n**Keywords that REQUIRE capability check:**\nsave, store, persist, remember, login, signup, auth, upload, profile picture, submit form, review, comment, todo, task, note, bookmark, blog (with submissions)\n\n**NEVER use:**\n- `alert()` for user feedback - use Toast/Sonner component\n- Static arrays for user-submitted data\n- Local state for data that should persist"
+      },
+      {
+        "priority": 2,
+        "section": "after_role",
+        "title": "Firebase Data Storage ENABLED",
+        "content": "This project has Firebase/Firestore enabled for data persistence.\n\n**MANDATORY for any data that should persist:**\n- Task managers, todo lists, notes -> useFirestore\n- User profiles, settings -> useFirestore\n- Reviews, comments, posts -> useFirestore\n- Any form that \"saves\" data -> useFirestore\n\n**Before writing Firebase code:**\n1. Call `getProjectCapabilities` to confirm enabled\n2. Call `getFirestoreCollections` to discover existing collections\n3. REUSE existing collection names - don't create duplicates\n\n**Import:** `import { useFirestore } from '../hooks/useFirestore';`\n\n**Usage:**\n```tsx\nconst { documents, loading, add, update, remove } = useFirestore<MyType>('collection');\n// documents auto-sync in real-time!\nawait add({ field: 'value' });\nawait update(id, { field: 'newValue' });\nawait remove(id);\n```",
+        "conditions": { "firebase_enabled": true }
+      },
+      {
+        "priority": 3,
+        "section": "after_role",
+        "title": "User Authentication ENABLED",
+        "content": "Firebase Auth is available for login/signup features.\n\n**Import:** `import { useAuth } from '../hooks/useAuth';`\n\n**Usage:**\n```tsx\nconst { user, signIn, signUp, signOut, isAuthenticated, loading, error } = useAuth();\n\n// Sign up\nawait signUp(email, password, displayName?);\n\n// Sign in\nawait signIn(email, password);\n\n// Sign out\nawait signOut();\n\n// Check auth state\nif (isAuthenticated) { /* user is logged in */ }\n```\n\n**NEVER use browser prompt() for credentials - build a proper form.**",
+        "conditions": { "firebase_enabled": true }
+      },
+      {
+        "priority": 4,
+        "section": "after_role",
+        "title": "File Storage ENABLED",
+        "content": "File uploads are available via System Storage.\n\n**Import:** `import { useSystemStorage } from '../hooks/useSystemStorage';`\n\n**Usage:**\n```tsx\nconst { upload, uploading, error } = useSystemStorage();\n\nconst handleUpload = async (file: File) => {\n  const result = await upload(file);\n  if (result) {\n    console.log('Uploaded URL:', result.url);\n  }\n};\n```\n\n**For file inputs:**\n```tsx\n<input\n  type=\"file\"\n  onChange={(e) => e.target.files?.[0] && handleUpload(e.target.files[0])}\n  disabled={uploading}\n/>\n```",
+        "conditions": { "storage_enabled": true }
+      },
+      {
+        "priority": 5,
+        "section": "after_role",
+        "title": "Dynamic Features NOT Available",
+        "content": "This project does NOT have Firebase or Storage enabled.\n\n**If user requests features requiring:**\n- Data persistence (saving tasks, notes, reviews, bookmarks)\n- User accounts (login, signup, profiles)\n- File uploads (images, documents)\n\n**You MUST:**\n1. Explain clearly: \"Your current plan doesn't include data storage. To save data between sessions, you'll need to enable Firebase in your project settings.\"\n2. Offer to build a DEMO version using React state (data lost on page refresh)\n3. Make it clear the demo won't persist data\n\n**Example response:**\n\"I can build a task manager for you! However, your plan doesn't include data storage, so tasks won't be saved when you close the browser. Would you like me to build a demo version, or would you prefer to enable Firebase first?\"",
+        "conditions": { "firebase_enabled": false, "storage_enabled": false }
+      },
+      {
+        "priority": 6,
+        "section": "after_role",
+        "title": "Firebase ENABLED but Storage DISABLED",
+        "content": "**Database available but file uploads are NOT.**\n\nYou CAN:\n- Save any data to Firestore (use useFirestore hook)\n- Use authentication (useAuth hook)\n- Real-time data sync\n\nYou CANNOT:\n- Upload files or images\n- Use useSystemStorage hook\n\n**For features needing images:**\n- Use placeholder URLs: `https://placehold.co/400x300`\n- Accept image URLs as text input\n- Use external image hosting\n\n```tsx\n<Input\n  placeholder=\"Image URL\"\n  value={imageUrl}\n  onChange={(e) => setImageUrl(e.target.value)}\n/>\n```\n\n**Tell the user:** \"Your plan includes database storage but not file uploads. You can save data and use image URLs.\"",
+        "conditions": { "firebase_enabled": true, "storage_enabled": false }
+      },
+      {
+        "priority": 7,
+        "section": "after_role",
+        "title": "Storage ENABLED but Firebase DISABLED",
+        "content": "**File uploads available but database is NOT.**\n\nYou CAN:\n- Upload files using useSystemStorage\n- Display uploaded files\n\nYou CANNOT:\n- Persist any data (no Firestore)\n- User authentication\n\n**For features without database:**\n- Use React state for data (lost on refresh)\n- Explain data won't persist\n\n```tsx\nconst [items, setItems] = useState([]);\nconst { upload } = useSystemStorage();\n\nconst handleUpload = async (file: File) => {\n  const result = await upload(file);\n  if (result?.url) {\n    setItems([...items, { image: result.url }]); // Temporary\n  }\n};\n```\n\n**Tell the user:** \"Files can be uploaded, but data won't persist after refresh. Enable Firebase for data storage.\"",
+        "conditions": { "firebase_enabled": false, "storage_enabled": true }
+      },
+      {
+        "priority": 8,
+        "section": "after_role",
+        "title": "CRITICAL: Dark/Light Mode Theming",
+        "content": "This template uses Tailwind v4 with shadcn/ui CSS variables for automatic dark/light mode support.\n\n**NEVER use hardcoded colors for themed UI elements:**\n❌ bg-blue-600, text-blue-500, bg-gray-100, border-gray-200\n✅ bg-primary, text-primary, bg-secondary, border-border\n\n**Color mapping:**\n- Primary actions/links: `text-primary`, `bg-primary`\n- Backgrounds: `bg-background`, `bg-card`, `bg-secondary`\n- Text: `text-foreground`, `text-muted-foreground`\n- Borders: `border-border`, `border-input`\n- Icon backgrounds: `bg-primary/10` NOT `bg-blue-50`\n\n**For accent colors that need dark mode variants:**\n```tsx\n// Success states\nclassName=\"bg-emerald-500/10 text-emerald-700 dark:text-emerald-400\"\n\n// Warning states\nclassName=\"bg-amber-500/10 text-amber-700 dark:text-amber-400\"\n\n// Info states\nclassName=\"bg-sky-500/10 text-sky-700 dark:text-sky-400\"\n```\n\n**CTA/Hero sections with inverted colors:**\n```tsx\n<section className=\"bg-primary text-primary-foreground\">\n  <Button variant=\"secondary\">Action</Button>\n</section>\n```\n\n**Theme toggle is already in Navigation. To use programmatically:**\n```tsx\nimport { useTheme } from '../hooks/useTheme';\nconst { theme, setTheme, resolvedTheme } = useTheme();\n```"
+      },
+      {
+        "priority": 10,
+        "section": "after_role",
+        "title": "Icon Usage - Lucide React",
+        "content": "This template uses lucide-react for icons.\n\n**Import format:**\n```tsx\nimport { Home, User, Settings, Search, Menu, X, ChevronRight, Plus, Trash2 } from 'lucide-react';\n```\n\n**Usage:**\n```tsx\n<Home className=\"h-6 w-6\" />\n<User className=\"h-5 w-5 text-gray-600\" />\n<Settings className=\"h-4 w-4 text-blue-500\" />\n```\n\n**Common icons:**\n- Navigation: Home, Menu, X, ChevronRight, ArrowLeft\n- Actions: Plus, Minus, Trash2, Pencil, Check, X\n- User: User, Users, LogIn, LogOut, Settings\n- Status: CheckCircle, AlertCircle, Info, HelpCircle"
+      },
+      {
+        "priority": 20,
+        "section": "after_mandatory_steps",
+        "title": "Additional Tool Calls for Data Features",
+        "content": "**When user request involves data persistence, add these to your tool sequence:**\n\nAfter `readFile(\"template.json\")` and `readFile(\"src/pages/Home.tsx\")`:\n\n3. `getProjectCapabilities` - Check what features are enabled\n4. If `firebase.enabled`: `getFirestoreCollections` - Discover existing data\n5. Then proceed with `createPlan` or file operations\n\n**This prevents:**\n- Building static pages when Firebase is available\n- Creating duplicate collections\n- Using alert() when Toast is available"
+      },
+      {
+        "priority": 55,
+        "section": "after_dynamic_features",
+        "title": "Complete Firebase Example",
+        "content": "**Full CRUD Example with useFirestore:**\n```tsx\nimport { useState } from 'react';\nimport { useFirestore } from '../hooks/useFirestore';\nimport { Button } from '../components/ui/button';\nimport { Input } from '../components/ui/input';\nimport { Card } from '../components/ui/card';\nimport { toast } from 'sonner';\n\ninterface Review {\n  title: string;\n  author: string;\n  rating: number;\n  content: string;\n  createdAt: Date;\n}\n\nexport default function ReviewManager() {\n  const { documents: reviews, loading, add, remove } = useFirestore<Review>('reviews');\n  const [title, setTitle] = useState('');\n  const [content, setContent] = useState('');\n\n  const handleSubmit = async (e: React.FormEvent) => {\n    e.preventDefault();\n    await add({\n      title,\n      author: 'Anonymous',\n      rating: 5,\n      content,\n      createdAt: new Date(),\n    });\n    setTitle('');\n    setContent('');\n    toast.success('Review added!');  // NOT alert()!\n  };\n\n  if (loading) return <div>Loading...</div>;\n\n  return (\n    <div>\n      <form onSubmit={handleSubmit}>\n        <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder=\"Title\" />\n        <Input value={content} onChange={(e) => setContent(e.target.value)} placeholder=\"Review\" />\n        <Button type=\"submit\">Add Review</Button>\n      </form>\n      {reviews.map((review) => (\n        <Card key={review.id}>\n          <h3>{review.title}</h3>\n          <p>{review.content}</p>\n          <Button variant=\"destructive\" onClick={() => remove(review.id)}>Delete</Button>\n        </Card>\n      ))}\n    </div>\n  );\n}\n```\n\n**Key points:**\n- Real-time sync (no manual refresh needed)\n- Use `toast.success()` instead of `alert()`\n- TypeScript interface matches Firestore document",
+        "conditions": { "firebase_enabled": true }
+      }
+    ]
+  }
+}
