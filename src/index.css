@@ -110,3 +110,17 @@ body {
   color: hsl(var(--foreground));
   min-height: 100vh;
 }
+
+
+/* Contrast guardrails: ensure readable default foreground on themed surfaces */
+.bg-background { color: hsl(var(--foreground)); }
+.bg-card { color: hsl(var(--card-foreground)); }
+.bg-popover { color: hsl(var(--popover-foreground)); }
+.bg-primary { color: hsl(var(--primary-foreground)); }
+.bg-secondary { color: hsl(var(--secondary-foreground)); }
+.bg-muted { color: hsl(var(--muted-foreground)); }
+.bg-accent { color: hsl(var(--accent-foreground)); }
+.bg-destructive { color: hsl(var(--destructive-foreground)); }
+
+:root { color-scheme: light; }
+.dark { color-scheme: dark; }

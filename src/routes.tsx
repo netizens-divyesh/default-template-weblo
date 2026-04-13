@@ -31,8 +31,8 @@ export const routes: RouteConfig[] = [
     path: '/',
     label: 'Home',
     element: <Home />,
-    showInNav: false,  // Home accessed via logo click
-    layout: 'bare'     // Standalone landing page without nav
+    showInNav: true,
+    layout: 'default'
   },
   {
     path: '*',
