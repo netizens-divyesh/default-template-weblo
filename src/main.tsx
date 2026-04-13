@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './index.css'
-import './custom.css'
 
 // Get basename from <base> tag (injected by builder with project ID)
 // Falls back to /preview for local development
