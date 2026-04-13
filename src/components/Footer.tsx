@@ -35,7 +35,8 @@ export default function Footer() {
       <div className="border-t border-border/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Weblo Studio. All rights reserved.</p>
-          <p>Made with React + Tailwind</p>
+          <p>Team Weblo</p>
+          <p>Privacy Policy</p>
         </div>
       </div>
     </footer>
