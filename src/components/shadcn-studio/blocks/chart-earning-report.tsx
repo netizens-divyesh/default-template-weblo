@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-import { ChevronDownIcon, ChevronUpIcon, EllipsisVerticalIcon } from 'lucide-react'
+import { ChevronDownIcon, ChevronUpIcon, MoreVerticalIcon } from 'lucide-react'
 
 import { Bar, BarChart, XAxis } from 'recharts'
 
@@ -57,7 +57,7 @@ const EarningReportCard = ({ title, subTitle, statData, chartData, className }: 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant='ghost' size='icon' className='text-muted-foreground size-6 rounded-full'>
-              <EllipsisVerticalIcon />
+              <MoreVerticalIcon />
               <span className='sr-only'>Menu</span>
             </Button>
           </DropdownMenuTrigger>

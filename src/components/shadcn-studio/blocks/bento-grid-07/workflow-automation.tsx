@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 
 // Third-party Imports
-import { BrainCircuitIcon, CodeIcon, FigmaIcon, LayoutDashboardIcon, NotepadTextIcon } from 'lucide-react'
+import { BrainCircuitIcon, CodeIcon, FigmaIcon, LayoutDashboardIcon } from 'lucide-react'
 
 // Component Imports
 
@@ -46,7 +46,7 @@ const WorkflowAutomation = () => {
           </div>
           <div ref={div4Ref} className='flex w-30 justify-center'>
             <div className='bg-card flex items-center gap-1.5 rounded-full border px-1.5 py-1 shadow-md'>
-              <NotepadTextIcon className='size-4.5' />
+              <BrainCircuitIcon className='size-4.5' />
               <span className='text-card-foreground text-sm'>Instructions</span>
             </div>
           </div>

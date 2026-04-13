@@ -1,4 +1,4 @@
-import { DollarSignIcon } from 'lucide-react'
+import { DollarSign } from 'lucide-react'
 
 import WeeklyOverviewCard from '@/components/shadcn-studio/blocks/chart-weekly-overview'
 import StatisticsCard, { type StatisticsCardProps } from '@/components/shadcn-studio/blocks/statistics-card-02'
@@ -15,7 +15,7 @@ import { cn } from '@/lib/utils'
 
 const StatisticsCardData: StatisticsCardProps[] = [
   {
-    icon: <DollarSignIcon className='size-3.5' />,
+    icon: <DollarSign className='size-3.5' />,
     title: 'Total Revenue',
     value: '$12,345',
     changePercentage: 15
@@ -47,7 +47,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, ease: 'easeOut' }}
             className='max-w-3xl text-3xl leading-[1.29167] font-bold sm:text-4xl lg:text-5xl'
           >
-            Everything You Need to Run & Grow Your Business
+            Build Your Online Presence with Weblo Studio
           </MotionPreset>
 
           <MotionPreset
@@ -58,8 +58,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, ease: 'easeOut' }}
             className='text-muted-foreground max-w-4xl'
           >
-            An all-in-one SaaS platform to automate tasks, boost productivity, and unlock sustainable growth for teams
-            of every size.
+            The most powerful drag-and-drop web builder for modern teams. Create lightning fast, high-converting websites without writing a single line of code.
           </MotionPreset>
 
           <MotionPreset

@@ -1,4 +1,4 @@
-import { EllipsisVerticalIcon } from 'lucide-react'
+import { MoreVerticalIcon } from 'lucide-react'
 
 import { Bar, CartesianGrid, ComposedChart, Line, YAxis } from 'recharts'
 
@@ -80,7 +80,7 @@ const WeeklyOverviewCard = ({ className }: { className?: string }) => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant='ghost' size='icon' className='text-muted-foreground size-6 rounded-full'>
-              <EllipsisVerticalIcon />
+              <MoreVerticalIcon />
               <span className='sr-only'>Menu</span>
             </Button>
           </DropdownMenuTrigger>

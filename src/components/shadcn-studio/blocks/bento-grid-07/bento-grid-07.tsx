@@ -21,12 +21,12 @@ const BentoGrid = () => {
             transition={{ duration: 0.5 }}
             className='text-2xl font-semibold sm:text-3xl lg:text-4xl'
           >
-            Your All in One Platform
+            The Ultimate Tool for Modern Web Creation
           </MotionPreset>
 
           <MotionPreset fade slide={{ direction: 'down', offset: 50 }} delay={0.3} transition={{ duration: 0.5 }}>
             <p className='text-muted-foreground text-xl'>
-              From visualization to action — simplify how your organization works with data every day.
+              From ideation to production — Weblo gives you everything you need to build stunning websites.
             </p>
           </MotionPreset>
         </div>
@@ -47,9 +47,9 @@ const BentoGrid = () => {
                   <SmartData />
                 </CardContent>
                 <CardHeader className='mt-4 gap-4'>
-                  <CardTitle className='text-2xl'>Smart Data Insights</CardTitle>
+                  <CardTitle className='text-2xl'>Smart Layout Optimization</CardTitle>
                   <CardDescription className='text-lg font-medium'>
-                    Turn raw metrics into interactive visual stories with powerful analytics tools.
+                    Automatically organize your content for maximum impact and conversion.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -75,9 +75,9 @@ const BentoGrid = () => {
                   </div>
                 </CardContent>
                 <CardHeader className='gap-4'>
-                  <CardTitle className='text-2xl'>Modular Dashboards</CardTitle>
+                  <CardTitle className='text-2xl'>Drag & Drop Components</CardTitle>
                   <CardDescription className='text-lg font-medium'>
-                    Build personalized dashboards with flexible layouts for deep data visibility.
+                    Build beautiful pages in seconds using our extensive library of pre-built components.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -193,9 +193,9 @@ const BentoGrid = () => {
                   <Collaboration />
                 </CardContent>
                 <CardHeader className='gap-4'>
-                  <CardTitle className='text-2xl'>Live Collaboration</CardTitle>
+                  <CardTitle className='text-2xl'>Real-time Team Editing</CardTitle>
                   <CardDescription className='text-lg font-medium'>
-                    Work with your team in real time to explore data and uncover patterns.
+                    Work with your team in real time to design, edit, and launch together.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -215,9 +215,9 @@ const BentoGrid = () => {
                   <WorkflowAutomation />
                 </CardContent>
                 <CardHeader className='gap-4'>
-                  <CardTitle className='text-2xl'>Workflow Automation</CardTitle>
+                  <CardTitle className='text-2xl'>SEO & Performance Tools</CardTitle>
                   <CardDescription className='text-lg font-medium'>
-                    Automate tasks and connect tools using drag-and-drop logic flows.
+                    Built-in tools to ensure your site is lightning fast and ranks high on search engines.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -237,9 +237,9 @@ const BentoGrid = () => {
                   <ShieldCheck className='max-h-50 w-full sm:max-h-69' />
                 </CardContent>
                 <CardHeader className='gap-4'>
-                  <CardTitle className='text-2xl'>Integrated Data Security</CardTitle>
+                  <CardTitle className='text-2xl'>Global Edge Hosting</CardTitle>
                   <CardDescription className='text-lg font-medium'>
-                    Secure information with encrypted pipelines and unified data governance.
+                    Deploy your site to a global CDN for unmatched speed and reliability everywhere.
                   </CardDescription>
                 </CardHeader>
               </Card>

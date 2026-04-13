@@ -1,390 +1,385 @@
-import {
-  ArrowRight,
-  BarChart3,
-  Check,
-  Globe,
-  Layers3,
-  ShieldCheck,
-  Sparkles,
-  Workflow,
-} from "lucide-react";
-import { Badge } from "../components/ui/badge";
-import { Button } from "../components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../components/ui/card";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "../components/ui/tabs";
-import { Progress } from "../components/ui/progress";
-import { Avatar, AvatarFallback } from "../components/ui/avatar";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../components/ui/accordion";
-import { Separator } from "../components/ui/separator";
+import { Mail, MessageCircle, Phone, MapPin } from "lucide-react";
+import HeroSection from "@/components/shadcn-studio/blocks/hero-section-16/hero-section-16";
+import LogoCloud from "@/components/shadcn-studio/blocks/logo-cloud-02/logo-cloud-02";
+import BentoGrid from "@/components/shadcn-studio/blocks/bento-grid-07/bento-grid-07";
+import SocialProof from "@/components/shadcn-studio/blocks/social-proof-01/social-proof-01";
+import TestimonialsComponent from "@/components/shadcn-studio/blocks/testimonials-component-18/testimonials-component-18";
+import MegaFooter from "@/components/shadcn-studio/blocks/mega-footer-05/mega-footer-05";
+import TransactionTableCard from "@/components/shadcn-studio/blocks/datatable-transaction";
+import AboutUs from "@/components/shadcn-studio/blocks/about-us-page-03/about-us-page-03";
+import AppIntegration from "@/components/shadcn-studio/blocks/app-integration-03/app-integration-03";
+import CompareSection from "@/components/shadcn-studio/blocks/compare-01/compare-01";
+import ProductList from "@/components/shadcn-studio/blocks/product-list-07/product-list-07";
+import Timeline from "@/components/shadcn-studio/blocks/timeline-component-02/timeline-component-02";
+import Gallery from "@/components/shadcn-studio/blocks/gallery-component-03/gallery-component-03";
+import BlogSection from "@/components/shadcn-studio/blocks/blog-component-06/blog-component-06";
+import FAQSection from "@/components/shadcn-studio/blocks/faq-component-11/faq-component-11";
+import ContactSection from "@/components/shadcn-studio/blocks/contact-us-page-04/contact-us-page-04";
 
-const features = [
+// DATA DEFINITIONS
+const logos = [
   {
-    icon: Layers3,
-    title: "Pro-style Layout Blocks",
-    description:
-      "Hero, logo cloud, pricing, metrics, FAQ, and CTA sections you can reuse across any page.",
+    name: "SaaSMaster",
+    logo: "https://cdn.shadcnstudio.com/ss-assets/brand-logo/um-logo.png",
   },
   {
-    icon: Workflow,
-    title: "Design System Friendly",
-    description:
-      "Built with shadcn-style primitives and semantic theme tokens for consistent results in light/dark.",
+    name: "CloudSync",
+    logo: "https://cdn.shadcnstudio.com/ss-assets/brand-logo/star-helth-logo.png",
   },
   {
-    icon: ShieldCheck,
-    title: "Production-Ready Foundations",
-    description:
-      "Responsive behavior, accessible patterns, and composable components ready for real apps.",
+    name: "DevFlow",
+    logo: "https://cdn.shadcnstudio.com/ss-assets/brand-logo/dhl-logo.png",
+  },
+  {
+    name: "DataViz",
+    logo: "https://cdn.shadcnstudio.com/ss-assets/brand-logo/sense-arena-logo.png",
+  },
+  {
+    name: "AutoMate",
+    logo: "https://cdn.shadcnstudio.com/ss-assets/brand-logo/shemaroo-logo.png",
   },
 ];
 
-const metrics = [
-  { label: "Development Speed", value: 92 },
-  { label: "Visual Consistency", value: 95 },
-  { label: "Component Reuse", value: 88 },
-];
-
-const plans = [
+const socialProofFeatures = [
   {
-    name: "Starter",
-    price: "$0",
-    description: "Perfect for MVPs and quick prototypes.",
-    points: ["Core sections", "Theme toggle", "Responsive shell"],
-    cta: "Use Starter",
+    title: "No-Code Visual Editor",
+    description:
+      "Design complex layouts without writing a single line of code.",
   },
   {
-    name: "Growth",
-    price: "$29",
-    description: "For teams shipping production features every week.",
-    points: [
-      "Advanced blocks",
-      "Analytics-style widgets",
-      "Priority templates",
-    ],
-    cta: "Start Growth",
+    title: "One-Click Deployment",
+    description: "Publish your changes to global edge nodes instantly.",
   },
   {
-    name: "Scale",
-    price: "$99",
-    description: "Best for multi-product teams and white-label builds.",
-    points: ["Team libraries", "Brand kits", "Architecture support"],
-    cta: "Contact Sales",
+    title: "SEO Optimized Defaults",
+    description:
+      "Every page is built for speed and search visibility from start.",
+  },
+  {
+    title: "Team Collaboration",
+    description: "Invite your team and build together in real-time.",
   },
 ];
 
-const featureCards = [
+const testimonials = [
   {
-    icon: Layers3,
-    title: "Composable Sections",
-    description:
-      "Prebuilt blocks for hero, metrics, testimonials, pricing, and CTAs that you can rearrange in minutes.",
+    name: "Alex Rivers",
+    role: "Fullstack Developer",
+    company: "DevFlow",
+    avatar: "https://avatar.iran.liara.run/public/1",
+    rating: 5,
+    content:
+      "Weblo Studio significantly reduced our internal tool development time. The bento-grid components are a game changer.",
   },
   {
-    icon: Workflow,
-    title: "Built for Iteration",
-    description:
-      "Clear component structure and utility-first styling make fast edits and experiments effortless.",
+    name: "Sarah Chen",
+    role: "Product Designer",
+    company: "DesignCo",
+    avatar: "https://avatar.iran.liara.run/public/64",
+    rating: 5,
+    content:
+      "The visual editor feels premium. It's the first time I've felt a no-code tool actually gives me pixel-perfect control.",
   },
   {
-    icon: ShieldCheck,
-    title: "Production Friendly",
-    description:
-      "Accessible defaults, responsive layout behavior, and clean semantic markup across devices.",
+    name: "Michael Smith",
+    role: "Founder",
+    company: "SaaSMaster",
+    avatar: "https://avatar.iran.liara.run/public/12",
+    rating: 5,
+    content:
+      "We launched our landing page in 2 hours. Weblo's performance out of the box is incredible. 99 lighthouse score easily.",
   },
 ];
 
-const stats = [
-  { label: "Setup time", value: "5 min" },
-  { label: "Reusable sections", value: "12+" },
-  { label: "Lighthouse-ready patterns", value: "90+" },
+const aboutUsData = {
+  contentTitle: "Empowering Creativity Since 2024",
+  contentDescription:
+    "Weblo was born from a simple idea: making the web accessible to everyone, regardless of their technical background.",
+  tabs: [
+    {
+      name: "Our Vision",
+      value: "vision",
+      content: (
+        <p className="text-muted-foreground">
+          To be the world's most intuitive platform for building the modern web.
+          We aim to bridge the gap between design and development.
+        </p>
+      ),
+    },
+    {
+      name: "Our Values",
+      value: "values",
+      content: (
+        <p className="text-muted-foreground">
+          Simplicity, speed, and community represent everything we build. We
+          prioritize user experience above all else.
+        </p>
+      ),
+    },
+  ],
+};
+
+const integrations = [
+  {
+    name: "Slack",
+    description: "Get instant notifications for site activity.",
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/blocks/app-integration/image-1.png",
+    alt: "Slack",
+  },
+  {
+    name: "Github",
+    description: "Sync your assets directly from your repositories.",
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/blocks/app-integration/image-2.png",
+    alt: "Github",
+  },
+  {
+    name: "Notion",
+    description: "Publish your Notion pages directly as websites.",
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/blocks/app-integration/image-3.png",
+    alt: "Notion",
+  },
+];
+
+const timelineData = [
+  {
+    title: "ideation",
+    content: "Brainstorming core features and user experience architecture.",
+  },
+  {
+    title: "Alpha Launch",
+    content: "Successful testing with 100+ design agencies globally.",
+  },
+  {
+    title: "Global Scale",
+    content:
+      "Expanding our edge network to 50+ locations for sub-50ms latency.",
+  },
+];
+
+const compareData = [
+  {
+    name: "Feature",
+    isKey: true,
+    columnData: ["Visual Editor", "Edge Hosting", "AI Copilot", "Team Sync"],
+  },
+  {
+    name: "Weblo",
+    isHighlighted: true,
+    columnData: ["Advanced", "Global", "Included", "Real-time"],
+  },
+  { name: "Others", columnData: ["Basic", "Regional", "Add-on", "Delayed"] },
+];
+
+const galleryImages = [
+  {
+    src: "https://cdn.shadcnstudio.com/ss-assets/blocks/marketing/gallery/image-1.png",
+    alt: "Website Builder Interface",
+  },
+  {
+    src: "https://cdn.shadcnstudio.com/ss-assets/blocks/marketing/gallery/image-2.png",
+    alt: "Responsive Design View",
+  },
+  {
+    src: "https://cdn.shadcnstudio.com/ss-assets/blocks/marketing/gallery/image-3.png",
+    alt: "SEO Management Panel",
+  },
+  {
+    src: "https://cdn.shadcnstudio.com/ss-assets/blocks/marketing/gallery/image-4.png",
+    alt: "Team Collaboration Tools",
+  },
+];
+
+const blogCards = [
+  {
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/blocks/marketing/blog/image-1.png",
+    alt: "SEO Tips",
+    tags: ["SEO", "Growth"],
+    title: "10 Tips to Rank Your Website Faster",
+    date: "April 10, 2024",
+    blogLink: "#",
+  },
+  {
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/blocks/marketing/blog/image-2.png",
+    alt: "Design Trends",
+    tags: ["Design"],
+    title: "Modern Web Design Trends in 2024",
+    date: "April 12, 2024",
+    blogLink: "#",
+  },
+  {
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/blocks/marketing/blog/image-3.png",
+    alt: "No-Code Future",
+    tags: ["Tech"],
+    title: "Why No-Code is the Future of Development",
+    date: "April 15, 2024",
+    blogLink: "#",
+  },
+];
+
+const faqItems = [
+  {
+    question: "How fast are Weblo sites?",
+    answer:
+      "Extremely fast. We use global edge hosting and automatic image optimization to ensure sub-second load times.",
+  },
+  {
+    question: "Can I export my code?",
+    answer:
+      "Yes, you can export your site as a clean, production-ready React or HTML bundle at any time.",
+  },
+  {
+    question: "Is there a free plan?",
+    answer:
+      "Absolutely. You can build and host your first project for free on our weblo.me subdomain.",
+  },
+];
+
+const products = [
+  {
+    productSrc:
+      "https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-list/image-1.png",
+    productAlt: "Business Template",
+    productLink: "#",
+    name: "Enterprise SaaS",
+    rating: 4.8,
+    originalPrice: 99,
+    discountedPrice: 79,
+  },
+  {
+    productSrc:
+      "https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-list/image-2.png",
+    productAlt: "Portfolio Template",
+    productLink: "#",
+    name: "Creative Portfolio",
+    rating: 4.9,
+    originalPrice: 49,
+  },
+  {
+    productSrc:
+      "https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-list/image-3.png",
+    productAlt: "Blog Template",
+    productLink: "#",
+    name: "Minimalist Blog",
+    rating: 4.7,
+    originalPrice: 29,
+  },
+  {
+    productSrc:
+      "https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-list/image-4.png",
+    productAlt: "Agency Template",
+    productLink: "#",
+    name: "Studio Agency",
+    rating: 5.0,
+    originalPrice: 149,
+    discountedPrice: 119,
+  },
+];
+
+const contactCards = [
+  {
+    icon: Mail,
+    title: "Email Us",
+    description: "Send us a message anytime.",
+    ctaText: "support@weblo.studio",
+    ctaLink: "mailto:support@weblo.studio",
+  },
+  {
+    icon: Phone,
+    title: "Call Us",
+    description: "Mon-Fri from 9am to 6pm.",
+    ctaText: "+1 (555) 000-0000",
+    ctaLink: "tel:+15550000000",
+  },
+  {
+    icon: MessageCircle,
+    title: "Live Chat",
+    description: "Chat with our experts now.",
+    ctaText: "Start Chat",
+    ctaLink: "#",
+  },
+  {
+    icon: MapPin,
+    title: "Visit Us",
+    description: "Our main office in NYC.",
+    ctaText: "Get Directions",
+    ctaLink: "#",
+  },
 ];
 
 export default function Home() {
   return (
-    <div className="bg-background">
-      {/* HERO */}
-      <section className="relative overflow-hidden border-b border-border/60">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--primary)/0.18),transparent_45%)]" />
-        <div className="relative mx-auto max-w-6xl px-4 py-24 md:py-28">
-          <Badge variant="secondary" className="mb-5 rounded-full px-4 py-1">
-            <Sparkles className="mr-2 h-3.5 w-3.5" /> Enhanced shadcn-style
-            Theme
-          </Badge>
+    <div className="flex flex-col bg-background selection:bg-primary/20">
+      {/* 1. HERO */}
+      <HeroSection />
 
-          <h1 className="max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
-            Default template, now upgraded into a complete modern theme.
-          </h1>
+      {/* 2. LOGO CLOUD */}
+      <div className="border-y bg-card/50">
+        <LogoCloud logos={logos} />
+      </div>
 
-          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-            Richer hierarchy, more sections, and polished components to start
-            closer to launch quality.
-          </p>
+      {/* 3. SOCIAL PROOF */}
+      <SocialProof features={socialProofFeatures} />
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button size="lg" className="gap-2">
-              Browse Sections <ArrowRight className="h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="lg">
-              See Documentation
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* 4. ABOUT US */}
+      <AboutUs aboutUsData={aboutUsData} />
 
-      {/* METRICS */}
-      <section className="mx-auto grid max-w-6xl gap-4 px-4 py-10 md:grid-cols-3">
-        {metrics.map((item) => (
-          <Card key={item.label} className="border-border/60">
-            <CardHeader className="pb-2">
-              <CardDescription>{item.label}</CardDescription>
-              <CardTitle className="text-2xl">{item.value}%</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Progress value={item.value} />
-            </CardContent>
-          </Card>
-        ))}
-      </section>
+      {/* 5. BENTO GRID */}
+      <div className="bg-muted/30 py-4 border-y">
+        <BentoGrid />
+      </div>
 
-      {/* STATS */}
-      <section className="mx-auto grid max-w-6xl gap-4 px-4 py-6 md:grid-cols-3">
-        {stats.map((stat) => (
-          <Card
-            key={stat.label}
-            className="border-border/60 bg-card/70 backdrop-blur"
-          >
-            <CardHeader className="pb-2">
-              <CardDescription>{stat.label}</CardDescription>
-              <CardTitle className="text-3xl">{stat.value}</CardTitle>
-            </CardHeader>
-          </Card>
-        ))}
-      </section>
+      {/* 6. COMPARISON */}
+      <CompareSection rowdata={compareData} />
 
-      {/* CORE COMPONENTS */}
-      <section className="mx-auto max-w-6xl px-4 py-12">
-        <div className="mb-8 max-w-2xl">
-          <Badge variant="outline" className="mb-3">
-            Core Components
-          </Badge>
-          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-            Built with reusable shadcn-style primitives.
-          </h2>
-        </div>
+      {/* 7. APP INTEGRATION */}
+      <AppIntegration integrations={integrations} />
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {features.map(({ icon: Icon, title, description }) => (
-            <Card
-              key={title}
-              className="h-full border-border/60 transition-all hover:-translate-y-1 hover:shadow-md"
-            >
-              <CardHeader>
-                <Icon className="h-5 w-5 text-primary mb-2" />
-                <CardTitle>{title}</CardTitle>
-                <CardDescription>{description}</CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
-      </section>
+      {/* 8. PRODUCT LIST / TEMPLATES */}
+      <ProductList products={products} />
 
-      {/* DEFAULT COMPONENTS */}
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-        <div className="mb-10 max-w-2xl">
-          <Badge variant="outline" className="mb-4">
-            Default Components
-          </Badge>
-          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-            Everything you need for a complete landing experience.
-          </h2>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {featureCards.map(({ icon: Icon, title, description }) => (
-            <Card
-              key={title}
-              className="h-full border-border/60 transition-all hover:-translate-y-1 hover:shadow-lg"
-            >
-              <CardHeader>
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <CardTitle>{title}</CardTitle>
-                <CardDescription>{description}</CardDescription>
-              </CardHeader>
-
-              <CardContent>
-                <Button variant="link" className="px-0">
-                  Learn more
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* TABS + TESTIMONIAL */}
-      <section className="border-y border-border/60 bg-muted/25">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 md:grid-cols-2">
-          <div>
-            <h3 className="text-2xl font-semibold md:text-3xl">
-              A full default theme kit for product teams.
-            </h3>
-
+      {/* 9. PLATFORM INSIGHTS (DataTable) */}
+      <section className="py-20 border-t bg-card/40">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold">Live Platform Activity</h2>
             <p className="mt-4 text-muted-foreground">
-              Quickly adapt for SaaS, agency, portfolio, docs, or dashboards.
+              Monitoring network performance and user deployment cycles.
             </p>
-
-            <Separator className="my-6" />
-
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <Avatar>
-                  <AvatarFallback>UI</AvatarFallback>
-                </Avatar>
-                <p className="text-sm text-muted-foreground">
-                  "Huge head start in design consistency."
-                </p>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Avatar>
-                  <AvatarFallback>PM</AvatarFallback>
-                </Avatar>
-                <p className="text-sm text-muted-foreground">
-                  "Reusable sections made iteration faster."
-                </p>
-              </div>
-            </div>
           </div>
-
-          <Card className="border-border/60">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <BarChart3 className="h-5 w-5 text-primary" />
-                Theme Experience
-              </CardTitle>
-              <CardDescription>Switch use-cases using tabs.</CardDescription>
-            </CardHeader>
-
-            <CardContent>
-              <Tabs defaultValue="saas">
-                <TabsList className="grid w-full grid-cols-3">
-                  <TabsTrigger value="saas">SaaS</TabsTrigger>
-                  <TabsTrigger value="agency">Agency</TabsTrigger>
-                  <TabsTrigger value="docs">Docs</TabsTrigger>
-                </TabsList>
-
-                <TabsContent
-                  value="saas"
-                  className="mt-4 text-sm text-muted-foreground"
-                >
-                  Conversion-focused layout with pricing and trust sections.
-                </TabsContent>
-
-                <TabsContent
-                  value="agency"
-                  className="mt-4 text-sm text-muted-foreground"
-                >
-                  Portfolio, services, and lead capture blocks.
-                </TabsContent>
-
-                <TabsContent
-                  value="docs"
-                  className="mt-4 text-sm text-muted-foreground"
-                >
-                  Documentation-first layout with search and onboarding.
-                </TabsContent>
-              </Tabs>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* PRICING */}
-      <section className="mx-auto max-w-6xl px-4 py-14">
-        <div className="mb-8 text-center">
-          <h3 className="text-3xl font-semibold">Simple plans to start with</h3>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {plans.map((plan) => (
-            <Card key={plan.name}>
-              <CardHeader>
-                <CardTitle>{plan.name}</CardTitle>
-                <CardDescription>{plan.description}</CardDescription>
-                <p className="text-3xl font-bold">
-                  {plan.price}
-                  <span className="text-sm text-muted-foreground">/mo</span>
-                </p>
-              </CardHeader>
-
-              <CardContent>
-                <ul className="space-y-2">
-                  {plan.points.map((point) => (
-                    <li key={point} className="flex gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-
-                <Button className="mt-5 w-full">{plan.cta}</Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="border-t border-border/60 bg-muted/25">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 md:grid-cols-2">
-          <div>
-            <Badge className="mb-4">FAQ</Badge>
-            <h3 className="text-3xl font-semibold">
-              Frequently asked questions
-            </h3>
+          <div className="rounded-2xl border bg-card shadow-xl overflow-hidden">
+            <TransactionTableCard />
           </div>
-
-          <Accordion type="single" collapsible>
-            <AccordionItem value="1">
-              <AccordionTrigger>Customize theme?</AccordionTrigger>
-              <AccordionContent>Yes, fully token-based.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="2">
-              <AccordionTrigger>Production ready?</AccordionTrigger>
-              <AccordionContent>Yes, starter-ready.</AccordionContent>
-            </AccordionItem>
-          </Accordion>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="mx-auto max-w-6xl px-4 py-16 text-center">
-        <h3 className="text-3xl font-semibold">
-          Ship faster with a better default experience.
-        </h3>
+      {/* 10. TIMELINE / ROADMAP */}
+      <Timeline data={timelineData} />
 
-        <Button className="mt-7" size="lg">
-          Start Building Now
-        </Button>
-      </section>
+      {/* 11. GALLERY */}
+      <Gallery galleryImages={galleryImages} />
+
+      {/* 12. BLOG / RESOURCES */}
+      <BlogSection blogCards={blogCards} />
+
+      {/* 13. FAQ */}
+      <FAQSection faqItems={faqItems} />
+
+      {/* 14. TESTIMONIALS */}
+      <div className="bg-muted/20 border-y">
+        <TestimonialsComponent testimonials={testimonials} />
+      </div>
+
+      {/* 15. CONTACT US */}
+      <ContactSection contactCards={contactCards} />
+
+      {/* 16. MEGA FOOTER */}
+      {/* <MegaFooter /> */}
     </div>
   );
 }
